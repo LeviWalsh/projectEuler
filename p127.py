@@ -113,7 +113,7 @@ def verify_exponent(a, b, c):
 
 maximum = 120000
 total = 0
-for a in range(1, maximum // 2):
+for a in range(1, 60000):
 	for b in range(a, maximum - a):
 		if verify_exponent(a, b, a+b):
 			print(a, b, a + b)
