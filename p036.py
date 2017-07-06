@@ -1,22 +1,20 @@
 # Find the sum of all numbers, less than one million, which are palindromic 
 # in base 10 and base 2.
 
-def isPalindrome(n):
-	if n < 0:
-		return isPalindrome(-n)
-	if n < 10:
+# takes in a string and checks if it is a palindrome
+def isPalindrome(s):
+	if len(s) <= 1:
 		return True
 	else:
 		# recursively calls isPalindrome if the first and last digit match
-		if n % 10 == n // (10 * (len(str(n)) - 1)):
-			n //= 10
-			return isPalindrome(n % (10 * len(str(n)) - 1))
+		if s[0] == s[-1]:
+			return isPalindrome(s[1:-1])
 		else:
 			return False
 
+# removes the 0b and calls isPalindrome
 def binPalindrome(n):
-	# remov
-	binaryNum = int(bin(n)[2:])
+	binaryNum = bin(n)[2:]
 	return isPalindrome(binaryNum)
 
-print(sum([i for i in range(1, 1000000) if binPalindrome(i) and isPalindrome(i)]))
+print(sum([i for i in range(1, 1000000) if binPalindrome(i) and isPalindrome(str(i))]))
