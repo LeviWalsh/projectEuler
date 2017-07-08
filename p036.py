@@ -18,3 +18,5 @@ def binPalindrome(n):
 	return isPalindrome(binaryNum)
 
 print(sum([i for i in range(1, 1000000) if binPalindrome(i) and isPalindrome(str(i))]))
+
+# 872187
